@@ -1,33 +1,38 @@
-import {NgModule} from "@angular/core";
-import {CommonModule} from "@angular/common";
-import {RouterModule} from "@angular/router";
-import { AdminLayoutComponent } from './shared/components/admin-layout/admin-layout.component';
-import { LoginPageComponent } from './login-page/login-page.component';
-import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
-import { CratePageComponent } from './crate-page/crate-page.component';
-import { EditPageComponent } from './edit-page/edit-page.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule} from '@angular/router';
+import {AdminLayoutComponent} from './shared/components/admin-layout/admin-layout.component';
+import {LoginPageComponent} from './login-page/login-page.component';
+import {DashboardPageComponent} from './dashboard-page/dashboard-page.component';
+import {CreatePageComponent} from './create-page/create-page.component';
+import {EditPageComponent} from './edit-page/edit-page.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AdminLayoutComponent,
     LoginPageComponent,
     DashboardPageComponent,
-    CratePageComponent,
+    CreatePageComponent,
     EditPageComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild([
-      {path: '', component: AdminLayoutComponent, children: [
+      {
+        path: '', component: AdminLayoutComponent, children: [
           {path: '', redirectTo: '/admin/login', pathMatch: 'full'},
-          { path: 'login', component: LoginPageComponent },
-          { path: 'dashboard', component: DashboardPageComponent },
-          { path: 'create', component: CratePageComponent },
-          { path: 'post/:id/edit', component: EditPageComponent }
-        ]}
+          {path: 'login', component: LoginPageComponent},
+          {path: 'dashboard', component: DashboardPageComponent},
+          {path: 'create', component: CreatePageComponent},
+          {path: 'post/:id/edit', component: EditPageComponent}
+        ]
+      }
     ])
   ],
-  exports: [ RouterModule ],
+  exports: [RouterModule]
 })
 export class AdminModule {
 
