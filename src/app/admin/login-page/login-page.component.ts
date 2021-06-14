@@ -26,26 +26,12 @@ export class LoginPageComponent implements OnInit {
     })
   }
 
-  // initializeForm() {
-  //   this.form.controls['email'].setValidators(
-  //       [
-  //         Validators.required,
-  //         Validators.email
-  //       ]
-  //   );
-  //   this.form.controls['password'].setValidators(
-  //     [
-  //       Validators.required,
-  //       Validators.minLength(6)
-  //     ]
-  //   )
-  //
-  // }
 
   submit() {
     if (this.form.invalid) {
       return;
     }
   }
+
 }
 

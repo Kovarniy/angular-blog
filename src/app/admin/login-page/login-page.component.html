@@ -28,7 +28,14 @@
     <div
       *ngIf="form.get('password').touched && form.get('password').invalid"
       class="validation">
-      error
+      <small *ngIf="form.get('password').errors.required">
+        Введите пароль
+      </small>
+      <small *ngIf="form.get('password').errors.minlength">
+        Пароль должен быть не менее
+        {{form.get('password').errors.minlength.requiredLength}} символов!
+        Текущая длина {{form.get('password').errors.minlength.actualLength}}.
+      </small>
     </div>
   </div>
 
